@@ -11,7 +11,7 @@ enum QTBoxError: Error {
     case unableToGetBoxType
 }
 
-enum QTBoxType: String {
+public enum QTBoxType: String {
     case root
     
     case ftyp // File Type Box
@@ -114,14 +114,14 @@ func QTBoxTypeReadableName(type: QTBoxType) -> String {
     }
 }
 
-enum QTBoxHandlerType {
+public enum QTBoxHandlerType {
     case vide
     case soun
     case hint
     case meta
 }
 
-class QTBox {
+public class QTBox {
     let data: Data
     var location: Range<UInt32>
     var type: QTBoxType
@@ -144,7 +144,7 @@ class QTBox {
     var children: [QTBox] = []
     weak var parent: QTBox?
     
-    var description: String {
+    public var description: String {
         
         var indent: String = ""
         
@@ -184,7 +184,7 @@ class QTBox {
         children.append(qtBox)
     }
     
-    func search(type: QTBoxType) -> [QTBox] {
+    public func search(type: QTBoxType) -> [QTBox] {
         
         var founds = [QTBox]()
         
@@ -343,7 +343,7 @@ class QTFullBox: QTBox {
 
 extension Data {
     
-    func parseForMP4Data() throws -> QTBox {
+    public func parseForMP4Data() throws -> QTBox {
         
         let rootBox = QTRootBox(data: self, location: 0..<UInt32(self.count), type: .root)
         
