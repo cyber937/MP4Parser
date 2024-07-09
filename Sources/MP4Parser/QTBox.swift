@@ -126,7 +126,7 @@ public class QTBox: Identifiable {
     var location: Range<UInt32>
     var type: QTBoxType
     
-    public var name: String {
+    public var typeReadable: String {
         return QTBoxTypeReadableName(type: type)
     }
     
@@ -146,7 +146,7 @@ public class QTBox: Identifiable {
     }
     var extDescription: String?
     
-    public var children: [QTBox] = []
+    public var children: [QTBox]? = nil
     
     weak var parent: QTBox?
     
@@ -171,8 +171,10 @@ public class QTBox: Identifiable {
         
         output += "\n\n"
         
-        for child in children {
-            output += child.description
+        if let children {
+            for child in children {
+                output += child.description
+            }
         }
         
         return output
@@ -187,7 +189,13 @@ public class QTBox: Identifiable {
     
     func addChild(qtBox: QTBox) {
         qtBox.parent = self
-        children.append(qtBox)
+        
+        if children == nil {
+            children = [QTBox]()
+        }
+        
+        children?.append(qtBox)
+        
     }
     
     public func search(type: QTBoxType) -> [QTBox] {
@@ -199,8 +207,10 @@ public class QTBox: Identifiable {
             return founds
         }
         
-        for child in children {
-            founds.append(contentsOf: child.search(type: type))
+        if let children {
+            for child in children {
+                founds.append(contentsOf: child.search(type: type))
+            }
         }
         
         return founds
@@ -315,14 +325,17 @@ public class QTBox: Identifiable {
             addChild(qtBox: qtBox)
             
             if qtBox is QTMediaBox {
-                let handlerBox = qtBox.children.filter { child in child.type == .hdlr }[0] as! QTHandlerBox
+                
+                guard let children = qtBox.children else { return }
+                
+                let handlerBox = children.filter { child in child.type == .hdlr }[0] as! QTHandlerBox
                 guard let handlerType = handlerBox.handlerType else { return }
                 
-                let mediaInformationBox = qtBox.children.filter { child in child.type == .minf }[0] as! QTMediaInformationBox
+                let mediaInformationBox = children.filter { child in child.type == .minf }[0] as! QTMediaInformationBox
                 
-                let sampleTableBox = mediaInformationBox.children.filter { child in child.type == .stbl }[0] as! QTSampleTableBox
+                let sampleTableBox = mediaInformationBox.children?.filter { child in child.type == .stbl }[0] as! QTSampleTableBox
                 
-                let sampleDescriptionBox = sampleTableBox.children.filter { child in child.type == .stsd }[0] as! QTSampleDescriptionBox
+                let sampleDescriptionBox = sampleTableBox.children?.filter { child in child.type == .stsd }[0] as! QTSampleDescriptionBox
                 
                 sampleDescriptionBox.sampleEntryProcess(handleType: handlerType)
             }
