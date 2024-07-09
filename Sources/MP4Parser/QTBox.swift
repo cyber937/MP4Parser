@@ -121,10 +121,15 @@ public enum QTBoxHandlerType {
     case meta
 }
 
-public class QTBox {
+public class QTBox: Identifiable {
     let data: Data
     var location: Range<UInt32>
     var type: QTBoxType
+    
+    public var name: String {
+        return QTBoxTypeReadableName(type: type)
+    }
+    
     var size: Int
     var level: Int {
         
@@ -141,7 +146,8 @@ public class QTBox {
     }
     var extDescription: String?
     
-    var children: [QTBox] = []
+    public var children: [QTBox] = []
+    
     weak var parent: QTBox?
     
     public var description: String {
