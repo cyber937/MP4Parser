@@ -8,6 +8,7 @@
 import Foundation
 
 extension Data {
+    
     func QTUtilConvert<T: BinaryInteger>(type: T.Type) -> T {
         let result = self.reduce(0, { soFar, new in
             (soFar << 8) | T(new)

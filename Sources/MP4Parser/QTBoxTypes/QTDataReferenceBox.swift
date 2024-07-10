@@ -11,16 +11,13 @@ class QTDataReferenceBox: QTFullBox {
     
     var entryCount: UInt32?
     
-    init(fullBox: QTFullBox)  {
+    init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
-        
         initialSetting()
     }
     
     override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
-        
         super.init(data: data, location: location, type: type)
-        
         initialSetting()
     }
     

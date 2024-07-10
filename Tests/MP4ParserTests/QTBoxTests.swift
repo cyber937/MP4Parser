@@ -67,8 +67,9 @@ final class MP4ParserTests: XCTestCase {
 //        XCTAssertNil(testBaseFullBox.userType)
     }
     
-    func testParseForMP4Data() throws {
-        let testRootBox = try testData?.parseForMP4Data()
+    func testParseForMP4Data() async throws {
+        
+        let testRootBox = try await testData?.parseForMP4Data()
 
         print(testRootBox!.description)
     }

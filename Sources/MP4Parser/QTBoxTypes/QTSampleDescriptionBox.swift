@@ -57,7 +57,7 @@ class QTSampleDescriptionBox: QTFullBox {
                 
             }
         } catch {
-            print("Error")
+            print(error.localizedDescription)
         }
     }
     

@@ -14,16 +14,12 @@ class QTSampleSizeBox: QTFullBox {
     var entrySize = [UInt32]()
     
     init(fullBox: QTFullBox) {
-        
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
-        
         initialSetting()
     }
     
     override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
-        
         super.init(data: data, location: location, type: type)
-        
         initialSetting()
     }
     
