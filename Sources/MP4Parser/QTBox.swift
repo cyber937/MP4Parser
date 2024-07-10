@@ -19,7 +19,17 @@ public enum QTBoxHandlerType {
     case meta
 }
 
-public class QTBox: Identifiable {
+public class QTBox: Identifiable, Hashable {
+    
+    // Hashable protocol
+    public static func == (lhs: QTBox, rhs: QTBox) -> Bool {
+        ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
+    }
+
     let data: Data
     var location: Range<UInt32>
     
