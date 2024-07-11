@@ -9,9 +9,9 @@ import Foundation
 
 public class QTCompositionOffsetBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
-    private(set) var sampleCount = [UInt32]()
-    private(set) var sampleOffset = [UInt32]()
+    public private(set) var entryCount: UInt32?
+    public private(set) var sampleCount = [UInt32]()
+    public private(set) var sampleOffset = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

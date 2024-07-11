@@ -10,11 +10,11 @@ import Foundation
 public class QTMediaHeaderBox: QTFullBox {
     
     // Movie Header Box properties
-    private(set) var creationTime: Date?
-    private(set) var modificationTime: Date?
-    private(set) var timeScale: UInt32?
-    private(set) var duration: UInt32?
-    private(set) var language: String?
+    public private(set) var creationTime: Date?
+    public private(set) var modificationTime: Date?
+    public private(set) var timeScale: UInt32?
+    public private(set) var duration: UInt32?
+    public private(set) var language: String?
     
     init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

@@ -9,8 +9,8 @@ import Foundation
 
 public class QTChunkOffsetBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
-    private(set) var chunkOffset = [UInt32]()
+    public private(set) var entryCount: UInt32?
+    public private(set) var chunkOffset = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

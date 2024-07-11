@@ -9,7 +9,7 @@ import Foundation
 
 public class QTSoundMediaHeaderBox: QTFullBox {
     
-    private(set) var balance: Float?
+    public private(set) var balance: Float?
     
     init(fullBox: QTFullBox) {
         

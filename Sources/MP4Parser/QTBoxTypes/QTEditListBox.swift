@@ -9,11 +9,11 @@ import Foundation
 
 public class QTEditListBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
-    private(set) var segmentDuration = [UInt32]()
-    private(set) var mediaTime = [Int32]()
-    private(set) var mediaRateInteger = [Int16]()
-    private(set) var mediaRateFraction = [Int16]()
+    public private(set) var entryCount: UInt32?
+    public private(set) var segmentDuration = [UInt32]()
+    public private(set) var mediaTime = [Int32]()
+    public private(set) var mediaRateInteger = [Int16]()
+    public private(set) var mediaRateFraction = [Int16]()
     
     init(fullBox: QTFullBox) {
         

@@ -10,9 +10,9 @@ import Foundation
 public class QTFileTypeBox: QTBox {
 
     // File Type Box properties
-    private(set) var majorBrand: String?
-    private(set) var minorVersion: UInt32?
-    private(set) var compatibleBrands = [String]()
+    public private(set) var majorBrand: String?
+    public private(set) var minorVersion: UInt32?
+    public private(set) var compatibleBrands = [String]()
     
     override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         super.init(data: data, location: location, type: type)

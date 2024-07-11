@@ -32,15 +32,15 @@ public class QTBox: Identifiable, Hashable {
 
     let data: Data
     
-    private(set) var location: Range<UInt32>
+    public private(set) var location: Range<UInt32>
     
-    private(set) var type: QTBoxType
+    public private(set) var type: QTBoxType
     
     public var typeReadable: String {
         return QTBoxTypeReadableName(type: type)
     }
     
-    private(set) var size: Int
+    public private(set) var size: Int
     
     var level: Int {
         
@@ -60,7 +60,7 @@ public class QTBox: Identifiable, Hashable {
     
     public var children: [QTBox]? = nil
     
-    private(set) weak var parent: QTBox?
+    public private(set) weak var parent: QTBox?
     
     public var description: String {
         

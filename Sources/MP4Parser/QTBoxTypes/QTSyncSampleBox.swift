@@ -9,8 +9,8 @@ import Foundation
 
 public class QTSyncSampleBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
-    private(set) var sampleNumber = [UInt32]()
+    public private(set) var entryCount: UInt32?
+    public private(set) var sampleNumber = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

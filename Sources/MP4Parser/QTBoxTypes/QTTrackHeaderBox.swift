@@ -10,15 +10,15 @@ import Foundation
 public class QTTrackHeaderBox: QTFullBox {
     
     // Movie Header Box properties
-    private(set) var creationTime: Date?
-    private(set) var modificationTime: Date?
-    private(set) var trackID: UInt32?
-    private(set) var duration: UInt64?
-    private(set) var layer: Int16 = 0
-    private(set) var volume: Float?
-    private(set) var matrix = [Float]()
-    private(set) var width: Float?
-    private(set) var height: Float?
+    public private(set) var creationTime: Date?
+    public private(set) var modificationTime: Date?
+    public private(set) var trackID: UInt32?
+    public private(set) var duration: UInt64?
+    public private(set) var layer: Int16 = 0
+    public private(set) var volume: Float?
+    public private(set) var matrix = [Float]()
+    public private(set) var width: Float?
+    public private(set) var height: Float?
     
     init(fullBox: QTFullBox)  {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

@@ -9,9 +9,9 @@ import Foundation
 
 public class QTTimeToSampleBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
-    private(set) var sampleCount = [UInt32]()
-    private(set) var sampleDelta = [UInt32]()
+    public private(set) var entryCount: UInt32?
+    public private(set) var sampleCount = [UInt32]()
+    public private(set) var sampleDelta = [UInt32]()
     
     init(fullBox: QTFullBox)  {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

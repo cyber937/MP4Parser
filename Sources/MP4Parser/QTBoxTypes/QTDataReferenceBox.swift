@@ -9,7 +9,7 @@ import Foundation
 
 public class QTDataReferenceBox: QTFullBox {
     
-    private(set) var entryCount: UInt32?
+    public private(set) var entryCount: UInt32?
     
     init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

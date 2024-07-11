@@ -9,8 +9,8 @@ import Foundation
 
 public class QTHandlerBox: QTFullBox {
     
-    private(set) var handlerType: QTBoxHandlerType?
-    private(set) var name: String?
+    public private(set) var handlerType: QTBoxHandlerType?
+    public private(set) var name: String?
     
     init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
