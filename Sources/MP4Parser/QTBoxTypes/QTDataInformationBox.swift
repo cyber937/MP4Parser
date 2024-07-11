@@ -7,4 +7,4 @@
 
 import Foundation
 
-public class QTDataInformationBox: QTBox {}
+public class QTDataInformationBox: QTProcessBox {}
