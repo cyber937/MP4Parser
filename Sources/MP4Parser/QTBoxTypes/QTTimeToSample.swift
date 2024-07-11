@@ -7,11 +7,11 @@
 
 import Foundation
 
-class QTTimeToSampleBox: QTFullBox {
+public class QTTimeToSampleBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var sampleCount = [UInt32]()
-    var sampleDelta = [UInt32]()
+    private(set) var entryCount: UInt32?
+    private(set) var sampleCount = [UInt32]()
+    private(set) var sampleDelta = [UInt32]()
     
     init(fullBox: QTFullBox)  {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

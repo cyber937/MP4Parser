@@ -7,11 +7,11 @@
 
 import Foundation
 
-class QTCompositionOffsetBox: QTFullBox {
+public class QTCompositionOffsetBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var sampleCount = [UInt32]()
-    var sampleOffset = [UInt32]()
+    private(set) var entryCount: UInt32?
+    private(set) var sampleCount = [UInt32]()
+    private(set) var sampleOffset = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

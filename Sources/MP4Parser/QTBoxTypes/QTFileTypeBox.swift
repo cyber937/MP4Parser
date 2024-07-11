@@ -7,13 +7,12 @@
 
 import Foundation
 
-class QTFileTypeBox: QTBox {
-    var userType: [Int8]?
-    
+public class QTFileTypeBox: QTBox {
+
     // File Type Box properties
-    var majorBrand: String?
-    var minorVersion: UInt32?
-    var compatibleBrands = [String]()
+    private(set) var majorBrand: String?
+    private(set) var minorVersion: UInt32?
+    private(set) var compatibleBrands = [String]()
     
     override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         super.init(data: data, location: location, type: type)

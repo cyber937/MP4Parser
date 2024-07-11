@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTMediaDataBox: QTBox {}
+public class QTMediaDataBox: QTBox {}

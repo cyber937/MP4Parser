@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTRootBox: QTProcessBox {}
+public class QTRootBox: QTProcessBox {}

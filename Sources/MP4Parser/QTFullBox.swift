@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QTFullBox: QTBox {
+public class QTFullBox: QTBox {
     
     var version: UInt8?
     var flags = [Int8]()

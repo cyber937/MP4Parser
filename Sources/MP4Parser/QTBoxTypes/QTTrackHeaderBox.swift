@@ -7,18 +7,18 @@
 
 import Foundation
 
-class QTTrackHeaderBox: QTFullBox {
+public class QTTrackHeaderBox: QTFullBox {
     
     // Movie Header Box properties
-    var creationTime: Date?
-    var modificationTime: Date?
-    var trackID: UInt32?
-    var duration: UInt64?
-    var layer: Int16 = 0
-    var volume: Float?
-    var matrix = [Float]()
-    var width: Float?
-    var height: Float?
+    private(set) var creationTime: Date?
+    private(set) var modificationTime: Date?
+    private(set) var trackID: UInt32?
+    private(set) var duration: UInt64?
+    private(set) var layer: Int16 = 0
+    private(set) var volume: Float?
+    private(set) var matrix = [Float]()
+    private(set) var width: Float?
+    private(set) var height: Float?
     
     init(fullBox: QTFullBox)  {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

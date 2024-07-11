@@ -7,10 +7,10 @@
 
 import Foundation
 
-class QTVideoMediaHeaderBox: QTFullBox {
+public class QTVideoMediaHeaderBox: QTFullBox {
     
-    var graphicsmode: UInt16?
-    var opcolor = [UInt16]()
+    private(set) var graphicsmode: UInt16?
+    private(set) var opcolor = [UInt16]()
     
     init(fullBox: QTFullBox) {
         

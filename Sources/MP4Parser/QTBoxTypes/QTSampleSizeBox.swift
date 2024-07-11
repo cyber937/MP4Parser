@@ -7,11 +7,11 @@
 
 import Foundation
 
-class QTSampleSizeBox: QTFullBox {
+public class QTSampleSizeBox: QTFullBox {
     
-    var sampleSize: UInt32?
-    var sampleCount: UInt32?
-    var entrySize = [UInt32]()
+    private(set) var sampleSize: UInt32?
+    private(set) var sampleCount: UInt32?
+    private(set) var entrySize = [UInt32]()
     
     init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

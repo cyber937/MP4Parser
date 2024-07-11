@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTSampleTableBox: QTProcessBox {}
+public class QTSampleTableBox: QTProcessBox {}

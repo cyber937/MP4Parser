@@ -7,12 +7,12 @@
 
 import Foundation
 
-class QTSampleToChunkBox: QTFullBox {
+public class QTSampleToChunkBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var firstChunk = [UInt32]()
-    var samplePerChunk = [UInt32]()
-    var sampleDescriptionIndex = [UInt32]()
+    private(set) var entryCount: UInt32?
+    private(set) var firstChunk = [UInt32]()
+    private(set) var samplePerChunk = [UInt32]()
+    private(set) var sampleDescriptionIndex = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

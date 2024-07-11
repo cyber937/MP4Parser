@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTMediaInformationBox: QTProcessBox {}
+public class QTMediaInformationBox: QTProcessBox {}

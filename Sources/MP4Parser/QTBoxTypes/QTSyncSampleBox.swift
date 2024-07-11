@@ -7,10 +7,10 @@
 
 import Foundation
 
-class QTSyncSampleBox: QTFullBox {
+public class QTSyncSampleBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var sampleNumber = [UInt32]()
+    private(set) var entryCount: UInt32?
+    private(set) var sampleNumber = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

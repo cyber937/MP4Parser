@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTEditBox: QTProcessBox {}
+public class QTEditBox: QTProcessBox {}

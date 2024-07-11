@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QTProcessBox: QTBox {
+public class QTProcessBox: QTBox {
     
     func process() async {
         

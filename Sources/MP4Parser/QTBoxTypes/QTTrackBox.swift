@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTTrackBox: QTProcessBox {}
+public class QTTrackBox: QTProcessBox {}

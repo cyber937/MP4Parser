@@ -7,14 +7,14 @@
 
 import Foundation
 
-class QTMediaHeaderBox: QTFullBox {
+public class QTMediaHeaderBox: QTFullBox {
     
     // Movie Header Box properties
-    var creationTime: Date?
-    var modificationTime: Date?
-    var timeScale: UInt32?
-    var duration: UInt32?
-    var language: String?
+    private(set) var creationTime: Date?
+    private(set) var modificationTime: Date?
+    private(set) var timeScale: UInt32?
+    private(set) var duration: UInt32?
+    private(set) var language: String?
     
     init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)

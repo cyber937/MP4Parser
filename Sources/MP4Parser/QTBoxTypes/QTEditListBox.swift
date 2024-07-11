@@ -7,13 +7,13 @@
 
 import Foundation
 
-class QTEditListBox: QTFullBox {
+public class QTEditListBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var segmentDuration = [UInt32]()
-    var mediaTime = [Int32]()
-    var mediaRateInteger = [Int16]()
-    var mediaRateFraction = [Int16]()
+    private(set) var entryCount: UInt32?
+    private(set) var segmentDuration = [UInt32]()
+    private(set) var mediaTime = [Int32]()
+    private(set) var mediaRateInteger = [Int16]()
+    private(set) var mediaRateFraction = [Int16]()
     
     init(fullBox: QTFullBox) {
         

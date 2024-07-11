@@ -7,10 +7,10 @@
 
 import Foundation
 
-class QTChunkOffsetBox: QTFullBox {
+public class QTChunkOffsetBox: QTFullBox {
     
-    var entryCount: UInt32?
-    var chunkOffset = [UInt32]()
+    private(set) var entryCount: UInt32?
+    private(set) var chunkOffset = [UInt32]()
     
     init(fullBox: QTFullBox) {
         

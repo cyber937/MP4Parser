@@ -7,9 +7,9 @@
 
 import Foundation
 
-class QTSampleDescriptionBox: QTFullBox {
+public class QTSampleDescriptionBox: QTFullBox {
     
-    var entryCount: UInt32?
+    private(set) var entryCount: UInt32?
     
     init(fullBox: QTFullBox) {
         

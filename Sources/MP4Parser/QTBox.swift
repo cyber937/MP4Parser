@@ -31,15 +31,17 @@ public class QTBox: Identifiable, Hashable {
     }
 
     let data: Data
-    var location: Range<UInt32>
     
-    public var type: QTBoxType
+    private(set) var location: Range<UInt32>
+    
+    private(set) var type: QTBoxType
     
     public var typeReadable: String {
         return QTBoxTypeReadableName(type: type)
     }
     
-    var size: Int
+    private(set) var size: Int
+    
     var level: Int {
         
         var tempLevel: Int = 0
@@ -53,11 +55,12 @@ public class QTBox: Identifiable, Hashable {
         
         return tempLevel
     }
-    var extDescription: String?
+    
+    internal var extDescription: String?
     
     public var children: [QTBox]? = nil
     
-    weak var parent: QTBox?
+    private(set) weak var parent: QTBox?
     
     public var description: String {
         

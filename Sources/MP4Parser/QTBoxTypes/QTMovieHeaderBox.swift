@@ -7,19 +7,19 @@
 
 import Foundation
 
-class QTMovieHeaderBox: QTFullBox {
+public class QTMovieHeaderBox: QTFullBox {
     
     // Movie Header Box properties
-    var creationTime: Date?
-    var modificationTime: Date?
-    var timeScale: UInt32?
-    var duration: UInt32?
-    var rate: Float?
-    var volume: Float?
-    var reserved: Data?
-    var matrix = [Float]()
-    var predefines: Data?
-    var nextTrackID: UInt32?
+    private(set) var creationTime: Date?
+    private(set) var modificationTime: Date?
+    private(set) var timeScale: UInt32?
+    private(set) var duration: UInt32?
+    private(set) var rate: Float?
+    private(set) var volume: Float?
+    private(set) var reserved: Data?
+    private(set) var matrix = [Float]()
+    private(set) var predefines: Data?
+    private(set) var nextTrackID: UInt32?
     
     init(fullBox: QTFullBox) {
         

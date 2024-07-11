@@ -7,4 +7,4 @@
 
 import Foundation
 
-class QTFreeBox: QTBox {}
+public class QTFreeBox: QTBox {}
