@@ -14,14 +14,14 @@ public class QTSampleToChunkBox: QTFullBox {
     public private(set) var samplePerChunk = [UInt32]()
     public private(set) var sampleDescriptionIndex = [UInt32]()
     
-    init(fullBox: QTFullBox) {
+    public init(fullBox: QTFullBox) {
         
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
         
         initialSetting()
     }
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         
         super.init(data: data, location: location, type: type)
         

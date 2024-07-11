@@ -12,12 +12,12 @@ public class QTHandlerBox: QTFullBox {
     public private(set) var handlerType: QTBoxHandlerType?
     public private(set) var name: String?
     
-    init(fullBox: QTFullBox) {
+    public init(fullBox: QTFullBox) {
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
         initialization()
     }
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         super.init(data: data, location: location, type: type)
         initialization()
     }

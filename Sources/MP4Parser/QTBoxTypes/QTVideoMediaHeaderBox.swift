@@ -12,14 +12,14 @@ public class QTVideoMediaHeaderBox: QTFullBox {
     public private(set) var graphicsmode: UInt16?
     public private(set) var opcolor = [UInt16]()
     
-    init(fullBox: QTFullBox) {
+    public init(fullBox: QTFullBox) {
         
         super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
         
         initialSetting()
     }
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         
         super.init(data: data, location: location, type: type)
         
