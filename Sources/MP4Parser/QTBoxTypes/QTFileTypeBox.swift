@@ -14,7 +14,7 @@ public class QTFileTypeBox: QTBox {
     public private(set) var minorVersion: UInt32?
     public private(set) var compatibleBrands = [String]()
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         super.init(data: data, location: location, type: type)
         
         let offSet = location.lowerBound+8
