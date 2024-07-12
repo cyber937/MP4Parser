@@ -26,7 +26,7 @@ final class QTTimeToSampleBoxTests: XCTestCase {
 
         XCTAssertEqual(timeToSampleBox.type, .stts)
 
-        XCTAssertEqual(timeToSampleBox.location, 658..<682)
+        XCTAssertEqual(timeToSampleBox.range, 658..<682)
         
         XCTAssertEqual(timeToSampleBox.entryCount, 1)
 

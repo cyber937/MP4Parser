@@ -24,7 +24,7 @@ final class QTSampleTableBoxTests: XCTestCase {
         
         XCTAssertEqual(sampleTableBox?.type, .stbl)
         
-        XCTAssertEqual(sampleTableBox?.location, 484..<5507)
+        XCTAssertEqual(sampleTableBox?.range, 484..<5507)
     }
 
 }

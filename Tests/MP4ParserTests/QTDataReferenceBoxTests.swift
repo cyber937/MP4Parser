@@ -26,7 +26,7 @@ final class QTDataReferenceBoxTests: XCTestCase {
         
         XCTAssertEqual(dataReferenceBox.type, .dref)
         
-        XCTAssertEqual(dataReferenceBox.location, 456..<484)
+        XCTAssertEqual(dataReferenceBox.range, 456..<484)
         
         XCTAssertEqual(dataReferenceBox.entryCount, 1)
     }

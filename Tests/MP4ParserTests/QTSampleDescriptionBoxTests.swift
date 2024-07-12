@@ -26,7 +26,7 @@ final class QTSampleDescriptionBoxTests: XCTestCase {
 
         XCTAssertEqual(sampleDescriptionBox.type, .stsd)
 
-        XCTAssertEqual(sampleDescriptionBox.location, 492..<658)
+        XCTAssertEqual(sampleDescriptionBox.range, 492..<658)
 
         XCTAssertEqual(sampleDescriptionBox.entryCount, 1)
     }

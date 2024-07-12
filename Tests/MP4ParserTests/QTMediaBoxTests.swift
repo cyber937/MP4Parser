@@ -24,7 +24,7 @@ final class QTMediaBoxTests: XCTestCase {
 
         XCTAssertEqual(mediaBox?.type, .mdia)
         
-        XCTAssertEqual(mediaBox?.location, 326..<5507)
+        XCTAssertEqual(mediaBox?.range, 326..<5507)
     }
 
 }

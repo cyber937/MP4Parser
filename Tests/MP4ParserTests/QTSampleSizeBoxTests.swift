@@ -26,7 +26,7 @@ final class QTSampleSizeBoxTests: XCTestCase {
 
         XCTAssertEqual(sampleSizeBox.type, .stsz)
 
-        XCTAssertEqual(sampleSizeBox.location, 1695..<5319)
+        XCTAssertEqual(sampleSizeBox.range, 1695..<5319)
 
         XCTAssertEqual(sampleSizeBox.sampleSize, 0)
 

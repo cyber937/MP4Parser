@@ -24,7 +24,7 @@ final class MP4ParserTests: XCTestCase {
         
         XCTAssertEqual(testBox!.data, testData!)
         
-        XCTAssertEqual(testBox!.location, 0..<32)
+        XCTAssertEqual(testBox!.range, 0..<32)
         
         XCTAssertEqual(testBox!.size, 32)
         

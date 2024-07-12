@@ -26,7 +26,7 @@ final class QTSoundMediaHeaderBoxTests: XCTestCase {
 
         XCTAssertEqual(soundMedaiHeaderBox.type, .smhd)
 
-        XCTAssertEqual(soundMedaiHeaderBox.location, 5745..<5761)
+        XCTAssertEqual(soundMedaiHeaderBox.range, 5745..<5761)
 
         XCTAssertEqual(soundMedaiHeaderBox.balance, 0.0)
     }

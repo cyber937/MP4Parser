@@ -16,7 +16,7 @@ public class QTSampleToChunkBox: QTFullBox {
     
     public init(fullBox: QTFullBox) {
         
-        super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
+        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
@@ -30,7 +30,7 @@ public class QTSampleToChunkBox: QTFullBox {
     
     func initialSetting() {
         
-        var offSet = location.lowerBound+12
+        var offSet = range.lowerBound+12
         
         entryCount = data[offSet..<offSet+4].QTUtilConvert(type: UInt32.self)
         

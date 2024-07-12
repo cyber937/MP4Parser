@@ -13,7 +13,7 @@ public class QTHandlerBox: QTFullBox {
     public private(set) var name: String?
     
     public init(fullBox: QTFullBox) {
-        super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
+        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
         initialization()
     }
     
@@ -23,7 +23,7 @@ public class QTHandlerBox: QTFullBox {
     }
         
         func initialization() {
-        let offSet = location.lowerBound+12 // Offset ... size(4) + type(4) + version(1) + flags(3) = 12
+        let offSet = range.lowerBound+12 // Offset ... size(4) + type(4) + version(1) + flags(3) = 12
         
         guard let handlerTypeStr = String(data: data[offSet+4..<offSet+8], encoding: .utf8) else {
             preconditionFailure()
@@ -45,7 +45,7 @@ public class QTHandlerBox: QTFullBox {
         
         // reserved unsigned int (32) [3] // 96
         
-        if let handlerTypeStr = String(data: data[offSet+20..<location.upperBound], encoding: .utf8) {
+        if let handlerTypeStr = String(data: data[offSet+20..<range.upperBound], encoding: .utf8) {
             name = handlerTypeStr
         } else {
             name = "Undifined"

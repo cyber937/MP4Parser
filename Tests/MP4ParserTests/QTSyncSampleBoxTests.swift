@@ -26,7 +26,7 @@ final class QTSyncSampleBoxTests: XCTestCase {
 
         XCTAssertEqual(synSampleBox.type, .stss)
 
-        XCTAssertEqual(synSampleBox.location, 682..<742)
+        XCTAssertEqual(synSampleBox.range, 682..<742)
 
         XCTAssertEqual(synSampleBox.entryCount, 11)
 

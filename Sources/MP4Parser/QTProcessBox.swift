@@ -19,9 +19,9 @@ public class QTProcessBox: QTBox {
             offSet = 8
         }
         
-        var i: UInt32 = location.lowerBound + offSet
+        var i: UInt32 = range.lowerBound + offSet
         
-        while i != location.upperBound {
+        while i != range.upperBound {
             
             var size: UInt32 = 0
             var extSize: UInt64?

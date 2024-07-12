@@ -26,7 +26,7 @@ final class QTHandlerBoxTests: XCTestCase {
 
         XCTAssertEqual(handlerbBox.type, .hdlr)
 
-        XCTAssertEqual(handlerbBox.location, 366..<420)
+        XCTAssertEqual(handlerbBox.range, 366..<420)
         
         XCTAssertEqual(handlerbBox.handlerType, .vide)
         

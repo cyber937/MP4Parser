@@ -26,7 +26,7 @@ final class QTSampleToChunkBoxTests: XCTestCase {
 
         XCTAssertEqual(sampleToChunkBox.type, .stsc)
 
-        XCTAssertEqual(sampleToChunkBox.location, 1655..<1695)
+        XCTAssertEqual(sampleToChunkBox.range, 1655..<1695)
 
         XCTAssertEqual(sampleToChunkBox.entryCount, 2)
 

@@ -26,7 +26,7 @@ final class QTMediaHeaderBoxTests: XCTestCase {
 
         XCTAssertEqual(movieHeaderBox.type, .mdhd)
 
-        XCTAssertEqual(movieHeaderBox.location, 334..<366)
+        XCTAssertEqual(movieHeaderBox.range, 334..<366)
         
         XCTAssertEqual(movieHeaderBox.creationTime?.description, "2015-08-07 16:13:02 +0000")
         

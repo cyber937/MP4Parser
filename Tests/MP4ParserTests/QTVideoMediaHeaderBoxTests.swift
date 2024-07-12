@@ -26,7 +26,7 @@ final class QTVideoMediaHeaderBoxTests: XCTestCase {
 
         XCTAssertEqual(videoMedaiHeaderBox.type, .vmhd)
 
-        XCTAssertEqual(videoMedaiHeaderBox.location, 428..<448)
+        XCTAssertEqual(videoMedaiHeaderBox.range, 428..<448)
 
         XCTAssertEqual(videoMedaiHeaderBox.graphicsmode, 0)
         

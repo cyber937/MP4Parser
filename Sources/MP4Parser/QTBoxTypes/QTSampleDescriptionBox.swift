@@ -13,7 +13,7 @@ public class QTSampleDescriptionBox: QTFullBox {
     
     public init(fullBox: QTFullBox) {
         
-        super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
+        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
@@ -27,7 +27,7 @@ public class QTSampleDescriptionBox: QTFullBox {
     
     func initialSetting() {
         
-        let offSet = location.lowerBound+12
+        let offSet = range.lowerBound+12
         
         entryCount = data[offSet..<offSet+4].QTUtilConvert(type: UInt32.self)
         
@@ -37,7 +37,7 @@ public class QTSampleDescriptionBox: QTFullBox {
         
         do {
             
-            let box = try data.parseForBox(offset: location.lowerBound + 16)
+            let box = try data.parseForBox(offset: range.lowerBound + 16)
             
             if handleType == .vide {
                 
@@ -91,9 +91,9 @@ class QTSampleEntry: QTBox {
     var dataReferenceIndex: UInt16?
     
     init(box: QTBox) {
-        super.init(data: box.data, location: box.location, type: box.type)
+        super.init(data: box.data, location: box.range, type: box.type)
         
-        let offset = box.location.lowerBound + 8 + 6
+        let offset = box.range.lowerBound + 8 + 6
         
         dataReferenceIndex = data[offset..<offset + 2].QTUtilConvert(type: UInt16.self)
     }
@@ -113,7 +113,7 @@ class QTVisualSampleEntry: QTSampleEntry {
     override init(box: QTBox) {
         super.init(box: box)
         
-        offset = box.location.lowerBound + 8 + 6 + 2 + 16
+        offset = box.range.lowerBound + 8 + 6 + 2 + 16
         
         width = data[offset..<offset + 2].QTUtilConvert(type: UInt16.self)
         
@@ -318,7 +318,7 @@ class QTAudioSampleEntry: QTSampleEntry {
     override init(box: QTBox) {
         super.init(box: box)
         
-        let offset = box.location.lowerBound + 8 + 6 + 2 + 8
+        let offset = box.range.lowerBound + 8 + 6 + 2 + 8
         
         channelCount = data[offset..<offset + 2].QTUtilConvert(type: UInt16.self)
         

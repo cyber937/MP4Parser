@@ -26,7 +26,7 @@ final class QTChunkOffsetBoxTests: XCTestCase {
 
         XCTAssertEqual(chunkOffsetBox.type, .stco)
 
-        XCTAssertEqual(chunkOffsetBox.location, 5319..<5455)
+        XCTAssertEqual(chunkOffsetBox.range, 5319..<5455)
 
         XCTAssertEqual(chunkOffsetBox.entryCount, 30)
 

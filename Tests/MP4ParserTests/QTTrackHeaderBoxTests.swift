@@ -26,7 +26,7 @@ final class QTTrackHeaderBoxTests: XCTestCase {
 
         XCTAssertEqual(trackHeaderBox.type, .tkhd)
 
-        XCTAssertEqual(trackHeaderBox.location, 198..<290)
+        XCTAssertEqual(trackHeaderBox.range, 198..<290)
 
         XCTAssertEqual(trackHeaderBox.creationTime?.description, "2015-08-07 16:13:02 +0000")
         

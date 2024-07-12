@@ -14,7 +14,7 @@ public class QTVideoMediaHeaderBox: QTFullBox {
     
     public init(fullBox: QTFullBox) {
         
-        super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
+        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
@@ -28,7 +28,7 @@ public class QTVideoMediaHeaderBox: QTFullBox {
     
     func initialSetting() {
         
-        let offSet = location.lowerBound+12 //
+        let offSet = range.lowerBound+12 //
         
         graphicsmode = data[offSet..<offSet+2].QTUtilConvert(type: UInt16.self)
         

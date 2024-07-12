@@ -26,7 +26,7 @@ final class QTEditListBoxTests: XCTestCase {
 
         XCTAssertEqual(editListBox.type, .elst)
 
-        XCTAssertEqual(editListBox.location, 298..<326)
+        XCTAssertEqual(editListBox.range, 298..<326)
 
         XCTAssertEqual(editListBox.entryCount, 1)
 

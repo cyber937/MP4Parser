@@ -32,7 +32,7 @@ public class QTBox: Identifiable, Hashable {
 
     let data: Data
     
-    public private(set) var location: Range<UInt32>
+    public private(set) var range: Range<UInt32>
     
     public private(set) var type: QTBoxType
     
@@ -74,7 +74,7 @@ public class QTBox: Identifiable, Hashable {
         
         output += "\(indent)Type: \(type) - \(QTBoxTypeReadableName(type: type))\n"
         output += "\(indent)| Size - \(size)\n"
-        output += "\(indent)| Range - \(location)\n"
+        output += "\(indent)| Range - \(range)\n"
         output += "\(indent)| Level - \(level)"
         
         if let extDescription = extDescription {
@@ -94,7 +94,7 @@ public class QTBox: Identifiable, Hashable {
     
     init(data: Data, location: Range<UInt32>, type: QTBoxType) {
         self.data = data
-        self.location = location
+        self.range = location
         self.type = type
         self.size = Int(location.upperBound - location.lowerBound)
     }

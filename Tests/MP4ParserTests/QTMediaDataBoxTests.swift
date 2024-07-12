@@ -24,7 +24,7 @@ final class QTMediaDataBoxTests: XCTestCase {
         
         XCTAssertEqual(mediaDataBox?.type, .mdat)
         
-        XCTAssertEqual(mediaDataBox?.location, 11864..<1570024)
+        XCTAssertEqual(mediaDataBox?.range, 11864..<1570024)
         
         let testDescription =    "Type: mdat - Media Data Box\n| Size - 1558160\n| Range - 11864..<1570024\n| Level - 0\n\n"
         

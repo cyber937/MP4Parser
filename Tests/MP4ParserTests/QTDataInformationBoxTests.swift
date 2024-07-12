@@ -24,7 +24,7 @@ final class QTDataInformationBoxTests: XCTestCase {
         
         XCTAssertEqual(dataInformationBox?.type, .dinf)
         
-        XCTAssertEqual(dataInformationBox?.location, 448..<484)
+        XCTAssertEqual(dataInformationBox?.range, 448..<484)
     }
 
 }

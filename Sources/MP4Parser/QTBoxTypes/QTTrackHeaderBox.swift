@@ -21,7 +21,7 @@ public class QTTrackHeaderBox: QTFullBox {
     public private(set) var height: Float?
     
     public init(fullBox: QTFullBox)  {
-        super.init(data: fullBox.data, location: fullBox.location, type: fullBox.type)
+        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
@@ -34,7 +34,7 @@ public class QTTrackHeaderBox: QTFullBox {
     }
     
     func initialSetting() {
-        var offSet = location.lowerBound+12 // Offset ... size(4) + type(4) + version(1) + flags(3) = 12
+        var offSet = range.lowerBound+12 // Offset ... size(4) + type(4) + version(1) + flags(3) = 12
         
         if version == 1 {
             creationTime = QTUtilUTCConvert(data: data[offSet..<offSet+8]) // 4...12 (8x8=64)

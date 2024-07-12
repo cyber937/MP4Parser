@@ -24,7 +24,7 @@ final class QTEditBoxTests: XCTestCase {
 
         XCTAssertEqual(mediaBox?.type, .edts)
         
-        XCTAssertEqual(mediaBox?.location, 290..<326)
+        XCTAssertEqual(mediaBox?.range, 290..<326)
     }
 
 }

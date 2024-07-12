@@ -24,7 +24,7 @@ final class QTTrackBoxTests: XCTestCase {
         
         XCTAssertEqual(trackBox?.type, .trak)
         
-        XCTAssertEqual(trackBox?.location, 190..<5507)
+        XCTAssertEqual(trackBox?.range, 190..<5507)
     }
 
 }

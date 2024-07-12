@@ -24,7 +24,7 @@ final class QTMovieBoxTests: XCTestCase {
         
         XCTAssertEqual(movieDataBox?.type, .moov)
         
-        XCTAssertEqual(movieDataBox?.location, 32..<11856)
+        XCTAssertEqual(movieDataBox?.range, 32..<11856)
 
         let testDescription =    "Type: moov - Movie Box\n| Size - 11824\n| Range - 32..<11856\n| Level - 0\n\n"
         
