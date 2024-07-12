@@ -21,8 +21,8 @@ public class QTHandlerBox: QTFullBox {
         super.init(data: data, range: range, type: type)
         initialization()
     }
-        
-        func initialization() {
+    
+    func initialization() {
         let offSet = range.lowerBound+12 // Offset ... size(4) + type(4) + version(1) + flags(3) = 12
         
         guard let handlerTypeStr = String(data: data[offSet+4..<offSet+8], encoding: .utf8) else {
