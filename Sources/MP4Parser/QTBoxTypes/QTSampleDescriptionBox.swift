@@ -106,7 +106,7 @@ public class QTVisualSampleEntry: QTSampleEntry {
     public private(set) var horizresolution: Float?
     public private(set) var vertresolution: Float?
     public private(set) var frameCount: UInt16?
-    public private(set) var compressionname: String?
+    public private(set) var compressorname: String?
     public private(set) var depth: Float?
     public private(set) var offset: UInt32 = 0
     
@@ -125,7 +125,9 @@ public class QTVisualSampleEntry: QTSampleEntry {
         
         frameCount = data[offset + 16..<offset + 18].QTUtilConvert(type: UInt16.self)
         
-        compressionname = String(data: data[offset + 18..<offset + 50], encoding: .utf8)
+        compressorname = String(data: data[offset + 18..<offset + 50], encoding: .utf8)
+        let filteredChars = "\"\n\\\0"
+        compressorname = compressorname?.filter{ filteredChars.range(of: String($0)) == nil }
         
         depth = data[offset + 50..<offset + 52].QTFixedPointConvert(aboveType: UInt8.self, belowType: UInt8.self)
 
@@ -135,7 +137,7 @@ public class QTVisualSampleEntry: QTSampleEntry {
     public override var extDescription: String? {
         get {
             
-            guard let width, let height, let horizresolution, let vertresolution, let frameCount, let compressionname, let depth else {
+            guard let width, let height, let horizresolution, let vertresolution, let frameCount, let compressorname, let depth else {
                 return nil
             }
             
@@ -152,7 +154,7 @@ public class QTVisualSampleEntry: QTSampleEntry {
             \(indent)| Horizonal Resolution - \(horizresolution)
             \(indent)| Vertical Resolution - \(vertresolution)
             \(indent)| Frame Count - \(frameCount)
-            \(indent)| Compression Name - \(compressionname)
+            \(indent)| Compression Name - \(compressorname)
             \(indent)| Depth - \(depth)
             """
             
