@@ -86,11 +86,11 @@ public class QTSampleDescriptionBox: QTFullBox {
     }
 }
 
-class QTSampleEntry: QTBox {
+public class QTSampleEntry: QTBox {
     
-    var dataReferenceIndex: UInt16?
+    public private(set) var dataReferenceIndex: UInt16?
     
-    init(box: QTBox) {
+    public init(box: QTBox) {
         super.init(data: box.data, range: box.range, type: box.type)
         
         let offset = box.range.lowerBound + 8 + 6
@@ -99,18 +99,18 @@ class QTSampleEntry: QTBox {
     }
 }
 
-class QTVisualSampleEntry: QTSampleEntry {
+public class QTVisualSampleEntry: QTSampleEntry {
     
-    var width: UInt16?
-    var height: UInt16?
-    var horizresolution: Float?
-    var vertresolution: Float?
-    var frameCount: UInt16?
-    var compressionname: String?
-    var depth: Float?
-    var offset: UInt32 = 0
+    public private(set) var width: UInt16?
+    public private(set) var height: UInt16?
+    public private(set) var horizresolution: Float?
+    public private(set) var vertresolution: Float?
+    public private(set) var frameCount: UInt16?
+    public private(set) var compressionname: String?
+    public private(set) var depth: Float?
+    public private(set) var offset: UInt32 = 0
     
-    override init(box: QTBox) {
+    public override init(box: QTBox) {
         super.init(box: box)
         
         offset = box.range.lowerBound + 8 + 6 + 2 + 16
@@ -132,7 +132,7 @@ class QTVisualSampleEntry: QTSampleEntry {
         offset += 54
     }
     
-    override var extDescription: String? {
+    public override var extDescription: String? {
         get {
             
             guard let width, let height, let horizresolution, let vertresolution, let frameCount, let compressionname, let depth else {
@@ -163,11 +163,11 @@ class QTVisualSampleEntry: QTSampleEntry {
     }
 }
 
-class QTAVCSampleEntry: QTVisualSampleEntry {
+public class QTAVCSampleEntry: QTVisualSampleEntry {
     
-    var config: QTAVCConfigurationBox?
+    public private(set) var config: QTAVCConfigurationBox?
     
-    override init(box: QTBox) {
+    public override init(box: QTBox) {
         super.init(box: box)
         
         let size = data[offset..<offset+4].QTUtilConvert(type: UInt32.self)
@@ -185,7 +185,7 @@ class QTAVCSampleEntry: QTVisualSampleEntry {
         addChild(qtBox: config!)
     }
     
-    override var extDescription: String? {
+    public override var extDescription: String? {
         get {
             
             guard let superExtDescription = super.extDescription
@@ -211,11 +211,11 @@ class QTAVCSampleEntry: QTVisualSampleEntry {
     
 }
 
-class QTAVCConfigurationBox: QTBox {
+public class QTAVCConfigurationBox: QTBox {
     
-    var avcConfig: QTAVCDecoderConfigurationRecord?
+    public private(set) var avcConfig: QTAVCDecoderConfigurationRecord?
     
-    override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
         super.init(data: data, range: range, type: type)
         
         let newLocation = range.lowerBound + 8 ..< range.upperBound
@@ -256,18 +256,18 @@ class QTAVCConfigurationBox: QTBox {
     }
 }
 
-class QTAVCDecoderConfigurationRecord {
-    var configurationVersion: UInt8?
-    var avcProfileIndication: UInt8?
-    var profileCompatibility: UInt8?
-    var avcLevelIndication: UInt8?
-    var lengthSizeMinusOne: UInt8?
-    var numOfSequenceParameterSets: UInt8?
-    var sequenceParameterSetLength = [UInt16]()
-    var sequenceParameterSetNALUnitRange = [Range<UInt32>]()
-    var numOfPictureParameterSets: UInt8?
-    var pictureParameterSetLength = [UInt16]()
-    var pictureParameterSetNALUnitRange = [Range<UInt32>]()
+public class QTAVCDecoderConfigurationRecord {
+    public private(set) var configurationVersion: UInt8?
+    public private(set) var avcProfileIndication: UInt8?
+    public private(set) var profileCompatibility: UInt8?
+    public private(set) var avcLevelIndication: UInt8?
+    public private(set) var lengthSizeMinusOne: UInt8?
+    public private(set) var numOfSequenceParameterSets: UInt8?
+    public private(set) var sequenceParameterSetLength = [UInt16]()
+    public private(set) var sequenceParameterSetNALUnitRange = [Range<UInt32>]()
+    public private(set) var numOfPictureParameterSets: UInt8?
+    public private(set) var pictureParameterSetLength = [UInt16]()
+    public private(set) var pictureParameterSetNALUnitRange = [Range<UInt32>]()
     
     init(data: Data, location: Range<UInt32>) {
         
@@ -309,13 +309,13 @@ class QTAVCDecoderConfigurationRecord {
     
 }
 
-class QTAudioSampleEntry: QTSampleEntry {
+public class QTAudioSampleEntry: QTSampleEntry {
     
-    var channelCount: UInt16?
-    var sampleSize: UInt16?
-    var sampleRate: Float?
+    public private(set) var channelCount: UInt16?
+    public private(set) var sampleSize: UInt16?
+    public private(set) var sampleRate: Float?
     
-    override init(box: QTBox) {
+    public override init(box: QTBox) {
         super.init(box: box)
         
         let offset = box.range.lowerBound + 8 + 6 + 2 + 8
