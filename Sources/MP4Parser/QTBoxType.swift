@@ -38,7 +38,7 @@ public enum QTBoxType: String {
     case edts // Edit Box
     case elst // Edit List Box
     
-    case url  // Data Entory URL Box
+    case url = "url " // Data Entory URL Box
     
     case avc1
     case avcC
