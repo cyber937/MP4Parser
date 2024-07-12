@@ -14,10 +14,10 @@ public class QTFileTypeBox: QTBox {
     public private(set) var minorVersion: UInt32?
     public private(set) var compatibleBrands = [String]()
     
-    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
-        super.init(data: data, location: location, type: type)
+    public override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
+        super.init(data: data, range: range, type: type)
         
-        let offSet = location.lowerBound+8
+        let offSet = range.lowerBound+8
         
         // Extract major brand as String
         guard let majorBrandTemp = String(data: data[offSet..<offSet+4], encoding: .utf8) else {
@@ -33,7 +33,7 @@ public class QTFileTypeBox: QTBox {
         
         var i: UInt32 = offSet+8
         
-        while i != location.upperBound {
+        while i != range.upperBound {
             
             guard let compatibleBrand = String(data: data[i..<i+4], encoding: .utf8) else {
                 preconditionFailure()

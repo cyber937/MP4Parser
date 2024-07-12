@@ -21,14 +21,14 @@ public class QTTrackHeaderBox: QTFullBox {
     public private(set) var height: Float?
     
     public init(fullBox: QTFullBox)  {
-        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
+        super.init(data: fullBox.data, range: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
     
-    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
         
-        super.init(data: data, location: location, type: type)
+        super.init(data: data, range: range, type: type)
         
         initialSetting()
     }

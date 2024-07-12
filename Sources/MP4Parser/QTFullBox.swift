@@ -12,10 +12,10 @@ public class QTFullBox: QTBox {
     var version: UInt8?
     var flags = [Int8]()
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
-        super.init(data: data, location: location, type: type)
+    override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
+        super.init(data: data, range: range, type: type)
         
-        let offset = location.lowerBound + 8
+        let offset = range.lowerBound + 8
         version = data[offset..<offset+1].QTUtilConvert(type: UInt8.self)
         
         flags = [data[offset+1..<offset+2].QTUtilConvert(type: Int8.self),

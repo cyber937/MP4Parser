@@ -15,7 +15,7 @@ final class FileTypeBoxTests: XCTestCase {
         
         let testBox = try testData!.parseForBox()
         
-        let fileTypeBox = QTFileTypeBox(data: testData!, location: testBox.range, type: testBox.type)
+        let fileTypeBox = QTFileTypeBox(data: testData!, range: testBox.range, type: testBox.type)
         
         XCTAssertEqual(fileTypeBox.majorBrand, "mp42")
         

@@ -13,14 +13,14 @@ public class QTSampleDescriptionBox: QTFullBox {
     
     public init(fullBox: QTFullBox) {
         
-        super.init(data: fullBox.data, location: fullBox.range, type: fullBox.type)
+        super.init(data: fullBox.data, range: fullBox.range, type: fullBox.type)
         
         initialSetting()
     }
     
-    public override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    public override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
         
-        super.init(data: data, location: location, type: type)
+        super.init(data: data, range: range, type: type)
         
         initialSetting()
     }
@@ -91,7 +91,7 @@ class QTSampleEntry: QTBox {
     var dataReferenceIndex: UInt16?
     
     init(box: QTBox) {
-        super.init(data: box.data, location: box.range, type: box.type)
+        super.init(data: box.data, range: box.range, type: box.type)
         
         let offset = box.range.lowerBound + 8 + 6
         
@@ -178,9 +178,9 @@ class QTAVCSampleEntry: QTVisualSampleEntry {
         
         let type = QTBoxType(rawValue: typeString)
         
-        let location = offset..<offset+size
+        let range = offset..<offset+size
         
-        config = QTAVCConfigurationBox(data: data, location: location, type: type!)
+        config = QTAVCConfigurationBox(data: data, range: range, type: type!)
         
         addChild(qtBox: config!)
     }
@@ -215,10 +215,10 @@ class QTAVCConfigurationBox: QTBox {
     
     var avcConfig: QTAVCDecoderConfigurationRecord?
     
-    override init(data: Data, location: Range<UInt32>, type: QTBoxType) {
-        super.init(data: data, location: location, type: type)
+    override init(data: Data, range: Range<UInt32>, type: QTBoxType) {
+        super.init(data: data, range: range, type: type)
         
-        let newLocation = location.lowerBound + 8 ..< location.upperBound
+        let newLocation = range.lowerBound + 8 ..< range.upperBound
         
         avcConfig = QTAVCDecoderConfigurationRecord(data: data, location: newLocation)
     }

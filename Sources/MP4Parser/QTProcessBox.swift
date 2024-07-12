@@ -25,7 +25,7 @@ public class QTProcessBox: QTBox {
             
             var size: UInt32 = 0
             var extSize: UInt64?
-            var location: Range<UInt32>
+            var range: Range<UInt32>
             
             guard let typeString = String(data: data[i+4..<i+8], encoding: .utf8) else {
                 preconditionFailure()
@@ -38,10 +38,10 @@ public class QTProcessBox: QTBox {
             if size == 1 {
                 extSize = data[i+8..<i+16].QTUtilConvert(type: UInt64.self)
                 
-                location = i..<i+UInt32(extSize!)
+                range = i..<i+UInt32(extSize!)
                 i += UInt32(extSize!)
             } else {
-                location = i..<i+UInt32(size)
+                range = i..<i+UInt32(size)
                 i += UInt32(size)
             }
             
@@ -51,68 +51,68 @@ public class QTProcessBox: QTBox {
             
             switch type {
             case .ftyp:
-                qtBox = QTFileTypeBox(data: data, location: location, type: type)
+                qtBox = QTFileTypeBox(data: data, range: range, type: type)
             case .moov:
-                qtBox = QTMovieBox(data: data, location: location, type: type)
+                qtBox = QTMovieBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .mdat:
-                qtBox = QTMediaDataBox(data: data, location: location, type: type)
+                qtBox = QTMediaDataBox(data: data, range: range, type: type)
             case .free:
-                qtBox = QTFreeBox(data: data, location: location, type: type)
+                qtBox = QTFreeBox(data: data, range: range, type: type)
                 //            case .meta:
                 //                qtAtom = QTMeta(data: data,size: size, extSize: extSize, location: location)
                 //            case .uuid:
                 //                qtAtom = QTUuid(data: data,size: size, extSize: extSize, location: location)
             case .mvhd:
-                qtBox = QTMovieHeaderBox(data: data, location: location, type: type)
+                qtBox = QTMovieHeaderBox(data: data, range: range, type: type)
             case .trak:
-                qtBox = QTTrackBox(data: data, location: location, type: type)
+                qtBox = QTTrackBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .tkhd:
-                qtBox = QTTrackHeaderBox(data: data, location: location, type: type)
+                qtBox = QTTrackHeaderBox(data: data, range: range, type: type)
             case .mdia:
-                qtBox = QTMediaBox(data: data, location: location, type: type)
+                qtBox = QTMediaBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .mdhd:
-                qtBox = QTMediaHeaderBox(data: data, location: location, type: type)
+                qtBox = QTMediaHeaderBox(data: data, range: range, type: type)
             case .hdlr:
-                qtBox = QTHandlerBox(data: data, location: location, type: type)
+                qtBox = QTHandlerBox(data: data, range: range, type: type)
             case .minf:
-                qtBox = QTMediaInformationBox(data: data, location: location, type: type)
+                qtBox = QTMediaInformationBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .vmhd:
-                qtBox = QTVideoMediaHeaderBox(data: data, location: location, type: type)
+                qtBox = QTVideoMediaHeaderBox(data: data, range: range, type: type)
             case .smhd:
-                qtBox = QTSoundMediaHeaderBox(data: data, location: location, type: type)
+                qtBox = QTSoundMediaHeaderBox(data: data, range: range, type: type)
             case .dinf:
-                qtBox = QTDataInformationBox(data: data, location: location, type: type)
+                qtBox = QTDataInformationBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .dref:
-                qtBox = QTDataReferenceBox(data: data, location: location, type: type)
+                qtBox = QTDataReferenceBox(data: data, range: range, type: type)
             case .stbl:
-                qtBox = QTSampleTableBox(data: data, location: location, type: type)
+                qtBox = QTSampleTableBox(data: data, range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .stts:
-                qtBox = QTTimeToSampleBox(data: data, location: location, type: type)
+                qtBox = QTTimeToSampleBox(data: data, range: range, type: type)
             case .ctts:
-                qtBox = QTCompositionOffsetBox(data: data, location: location, type: type)
+                qtBox = QTCompositionOffsetBox(data: data, range: range, type: type)
             case .stsd:
-                qtBox = QTSampleDescriptionBox(data: data, location: location, type: type)
+                qtBox = QTSampleDescriptionBox(data: data, range: range, type: type)
             case .stsc:
-                qtBox = QTSampleToChunkBox(data: data ,location: location, type: type)
+                qtBox = QTSampleToChunkBox(data: data ,range: range, type: type)
             case .stsz:
-                qtBox = QTSampleSizeBox(data: data ,location: location, type: type)
+                qtBox = QTSampleSizeBox(data: data ,range: range, type: type)
             case .stco:
-                qtBox = QTChunkOffsetBox(data: data ,location: location, type: type)
+                qtBox = QTChunkOffsetBox(data: data ,range: range, type: type)
             case .stss:
-                qtBox = QTSyncSampleBox(data: data ,location: location, type: type)
+                qtBox = QTSyncSampleBox(data: data ,range: range, type: type)
             case .edts:
-                qtBox = QTEditBox(data: data ,location: location, type: type)
+                qtBox = QTEditBox(data: data ,range: range, type: type)
                 await (qtBox as? QTProcessBox)?.process()
             case .elst:
-                qtBox = QTEditListBox(data: data ,location: location, type: type)
+                qtBox = QTEditListBox(data: data ,range: range, type: type)
             case .avcC:
-                qtBox = QTAVCConfigurationBox(data: data, location: location, type: type)
+                qtBox = QTAVCConfigurationBox(data: data, range: range, type: type)
                 
             default:
                 qtBox = nil

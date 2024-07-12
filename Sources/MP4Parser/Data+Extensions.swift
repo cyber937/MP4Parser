@@ -11,7 +11,7 @@ extension Data {
     
     public func parseForMP4Data() async throws -> QTBox {
         
-        let rootBox = QTRootBox(data: self, location: 0..<UInt32(self.count), type: .root)
+        let rootBox = QTRootBox(data: self, range: 0..<UInt32(self.count), type: .root)
         await rootBox.process()
         return rootBox
     }
@@ -26,7 +26,7 @@ extension Data {
             throw QTBoxError.unableToGetBoxType
         }
         
-        let box = QTBox(data: self, location: offset..<offset + size, type: type)
+        let box = QTBox(data: self, range: offset..<offset + size, type: type)
         
         return box
     }
@@ -41,7 +41,7 @@ extension Data {
             throw QTBoxError.unableToGetBoxType
         }
         
-        let fullbox = QTFullBox(data: self, location: offset..<offset + size, type: type)
+        let fullbox = QTFullBox(data: self, range: offset..<offset + size, type: type)
         
         return fullbox
     }

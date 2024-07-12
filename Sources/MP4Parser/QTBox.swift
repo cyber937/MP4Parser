@@ -92,11 +92,11 @@ public class QTBox: Identifiable, Hashable {
         return output
     }
     
-    init(data: Data, location: Range<UInt32>, type: QTBoxType) {
+    init(data: Data, range: Range<UInt32>, type: QTBoxType) {
         self.data = data
-        self.range = location
+        self.range = range
         self.type = type
-        self.size = Int(location.upperBound - location.lowerBound)
+        self.size = Int(range.upperBound - range.lowerBound)
     }
     
     func addChild(qtBox: QTBox) {
