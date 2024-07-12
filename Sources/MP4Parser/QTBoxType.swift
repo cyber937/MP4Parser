@@ -88,7 +88,7 @@ func QTBoxTypeReadableName(type: QTBoxType) -> String {
     case .stsd:
         return "Sample Description Box"
     case .stts:
-        return "Dacoding Time to Sample Box"
+        return "Decoding Time to Sample Box"
     case .ctts:
         return "Composition Time to Sample Box"
     case .stsc:
